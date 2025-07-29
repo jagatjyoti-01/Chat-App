@@ -3,13 +3,12 @@ const userSchema = new mongoose.Schema({
     name: {
         type: String,
         require: true,
-
     },
     email: {
-        trype: String,
-        require: [true, "provided name"],
-        unique: 'true'
-    },
+    type: String,
+    required: true,  // NOT "require: true"
+    unique: true
+  },
     password: {
         type: String,
         require: true,

@@ -2,6 +2,7 @@ const express=require('express')
 const cors=require('cors')
 require('dotenv').config()
 const connectDB=require('./config/db')
+const router=require('./router/index')
 
 
 const app=express();
@@ -10,6 +11,7 @@ app.use(cors({
     credentials:true
 
 }))
+app.use(express.json());
 
 const PORT=process.env.PORT ||5000;
 
@@ -21,6 +23,8 @@ res.json({
 
 })
 })
+
+app.use("/api",router)
 
 connectDB().then(()=>{
 app.listen(PORT,()=>{
