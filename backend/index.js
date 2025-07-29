@@ -28,7 +28,7 @@ app.use("/api",router)
 
 connectDB().then(()=>{
 app.listen(PORT,()=>{
-    console.log(`surver is run in ${PORT}`)
+    console.log(`surver is running in ${PORT}`)
 })
 })
 
