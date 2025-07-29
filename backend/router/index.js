@@ -6,7 +6,6 @@ const checkPassword=require('../controller/checkPassword')
 
 router.post("/register",register.register)
 router.post('/email',checkEmail)
-//check user password
 router.post('/password',checkPassword)
 
 module.exports=router
