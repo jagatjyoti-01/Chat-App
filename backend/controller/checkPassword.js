@@ -1,4 +1,4 @@
-const UserModel = require("../models/UserModel")
+const UserModel = require("../models/userModels")
 const bcryptjs = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 
@@ -16,7 +16,6 @@ async function checkPassword(request,response){
                 error : true
             })
         }
-
         const tokenData = {
             id : user._id,
             email : user.email 
@@ -27,7 +26,6 @@ async function checkPassword(request,response){
             http : true,
             secure : true
         }
-
         return response.cookie('token',token,cookieOptions).status(200).json({
             message : "Login successfully",
             token : token,

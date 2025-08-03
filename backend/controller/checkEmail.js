@@ -1,4 +1,4 @@
-const UserModel = require("../models/UserModel")
+const UserModel = require("../models/userModels")
 
 async function checkEmail(request,response){
     try {

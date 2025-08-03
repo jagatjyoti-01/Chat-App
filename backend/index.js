@@ -3,6 +3,8 @@ const cors=require('cors')
 require('dotenv').config()
 const connectDB=require('./config/db')
 const router=require('./router/index')
+const cookiesParser = require('cookie-parser')
+
 
 
 const app=express();
@@ -12,20 +14,16 @@ app.use(cors({
 
 }))
 app.use(express.json());
-
-const PORT=process.env.PORT ||5000;
-
+app.use(cookiesParser())
+const PORT=process.env.PORT || 5000;
 app.get("/",(req,res)=>{
 res.json({
     message:"surver is running ",
     success:true,
     error:false
-
 })
 })
-
 app.use("/api",router)
-
 connectDB().then(()=>{
 app.listen(PORT,()=>{
     console.log(`surver is running in ${PORT}`)
